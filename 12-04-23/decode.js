@@ -65,5 +65,5 @@ function decode(message) {
   // result = "santaclau"
 // 9th: "s"
   // stack = []
-  // result = "santaclaus
+  // result = "santaclaus"
 
