@@ -27,6 +27,27 @@
 // console.log(result3) // -> 5
 
 function maxDistance(movements) {
-  // Code here
-  return 0
+    // map value to character
+    const movementTable = {
+        '<': -1,
+        '>': 1,
+    };
+
+    let moveCount = 0;
+    // * char: determine max steps after left/right calcs are done
+    let wildCardCount = 0;
+
+    for (let i = 0; i < movements.length; i++) {
+        if (movements.charAt(i) !== "*") {
+            moveCount += movementTable[movements.charAt(i)];
+        } else {
+            wildCardCount++;
+        }
+    }
+
+    const distance1 = Math.abs(moveCount + wildCardCount);
+    const distance2 = Math.abs(moveCount - wildCardCount);
+    const finalDistance = Math.max(distance1, distance2);
+
+    return finalDistance;
 }
