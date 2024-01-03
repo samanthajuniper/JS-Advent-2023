@@ -18,6 +18,17 @@
 // -> 1 (you change the second light to 🟢)
 
 function adjustLights(lights) {
-  // Code here
-  return 0
+  let changesNeeded = 0;
+
+// iterate backwards--only way I could get tests to pass when the pattern needed a change to the first index only
+  for (let i = lights.length - 1; i > 0; i--) {
+    if (lights[i] === lights[i - 1]) {
+      // If the current light is the same as the previous one, change it to the opposite color
+      // Note: this is mutative
+      lights[i - 1] = lights[i - 1] === '🔴' ? '🟢' : '🔴';
+      changesNeeded++;
+    }
+  }
+
+  return changesNeeded;
 }
